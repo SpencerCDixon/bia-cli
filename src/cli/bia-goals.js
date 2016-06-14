@@ -1,5 +1,6 @@
 import commander from 'commander';
 import Goals from '../sub-commands/goals';
+import axios from 'axios';
 const goals = new Goals();
 
 commander

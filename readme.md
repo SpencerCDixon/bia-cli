@@ -5,8 +5,8 @@
 ## Bia CLI
 > In Greek mythology, Bia, was the personification of force and raw energy
 
-Bia is a personal productivity CLI.  This is the backend API that communicates
-with the CLI.
+Bia is a personal productivity CLI.  The CLI communicates with a Koa API
+[located here](https://github.com/SpencerCDixon/bia-backend)
 
 ## Commands
 `bia goals <cmd>` - command to CRUD goals

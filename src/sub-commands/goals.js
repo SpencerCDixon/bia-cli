@@ -1,8 +1,10 @@
+import Api from '../models/api';
 import SubCommand from '../models/sub-command';
 
 class Goals extends SubCommand {
   constructor() {
     super();
+    this.api = new Api(this.ui);
   }
 
   printUserHelp() {
@@ -10,7 +12,7 @@ class Goals extends SubCommand {
   }
 
   run() {
-    this.ui.writeInfo('Goals sanity check...');
+    this.api.fetchGoals();
   }
 }
 export default Goals;

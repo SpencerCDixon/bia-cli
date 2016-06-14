@@ -30,6 +30,7 @@
     "bia-goals": "bin/bia-goals.js"
   },
   "dependencies": {
+    "axios": "^0.12.0",
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
     "denodeify": "^1.2.1",
@@ -55,6 +56,7 @@
     "babel-register": "^6.5.1",
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
+    "dotenv": "^2.0.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.16.1",
     "isparta": "^4.0.0",
