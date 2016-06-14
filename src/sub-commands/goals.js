@@ -1,5 +1,6 @@
 import Api from '../models/api';
 import SubCommand from '../models/sub-command';
+import ProjectSettings from '../models/project-settings';
 
 class Goals extends SubCommand {
   constructor() {

@@ -5,6 +5,7 @@ program
   .version(version());
 
 program
-  .command('goals', 'goal helpers');
+  .command('goals', 'goal helpers')
+  .command('init', 'Sets up a .bia config file');
 
 program.parse(process.argv);

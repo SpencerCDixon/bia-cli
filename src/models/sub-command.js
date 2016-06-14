@@ -1,11 +1,11 @@
-// import ProjectSettings from './project-settings';
+import ProjectSettings from './project-settings';
 import UI from './ui';
 
 class SubCommand {
   constructor(program, options = {}) {
     this.program    = program;
     this.rawOptions = options;
-    this.settings   = options.settings; // || new ProjectSettings();
+    this.settings   = options.settings || new ProjectSettings();
     this.ui         = options.ui || new UI();
 
     this.environment = {
