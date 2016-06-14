@@ -21,6 +21,7 @@ class Init extends SubCommand {
 
   run() {
     this.ui.write(this.cliLogo());
+    this.ui.writeEmpty();
 
     prompt.get(initPrompt, (err, result) => {
       this.ui.writeInfo('Saving your settings...');

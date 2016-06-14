@@ -2,12 +2,12 @@ import chalk from 'chalk';
 
 const schema = {
   properties: {
-    sourceBase: {
+    username: {
       description: chalk.white('Basic auth username?'),
       type: 'string',
       required: true
     },
-    testBase: {
+    password: {
       description: chalk.white('Basic auth password?'),
       type: 'string',
       required: true,

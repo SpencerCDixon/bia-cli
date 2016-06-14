@@ -30,12 +30,16 @@ class UI {
     }
   }
 
-  writeLine(text, writeLevel) {
+  writeEmpty() {
+    this.writeLine('');
+  }
+
+  writeLine(text, writeLevel = 'INFO') {
     this.write(text + EOL, writeLevel);
   }
 
   writeInfo(text) {
-    const content = chalk.blue('  info: ') + chalk.white(text);
+    const content = chalk.gray('  info: ') + chalk.white(text);
     this.writeLine(content, 'INFO');
   }
 
@@ -79,7 +83,7 @@ class UI {
     if (this.writeLevelVisible(this.writeLevel)) {
       this.streaming = true;
       this.progressInterval = setInterval(() => {
-        stream(`  ${chalk.green('loading:')} ${string} ${chalk.cyan.bold.dim(frame())}`);
+        stream(`  ${chalk.white('loading:')} ${string} ${chalk.cyan.bold.dim(frame())}`);
       }, 100);
     }
   }
