@@ -15,7 +15,6 @@ class Api {
     });
   }
 
-  
   fetchGoals() {
     this.ui.startProgress('Fetching goals');
     return this.client.get('/goals')

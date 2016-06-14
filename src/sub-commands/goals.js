@@ -16,9 +16,9 @@ class Goals extends SubCommand {
   run() {
     this.api.fetchGoals().then(goals => {
       goals.forEach(goal => {
-        const { completed, name, _id } = goal;
+        const { complete, name, _id } = goal;
 
-        if (completed) {
+        if (complete) {
           this.completedGoal(name, _id);
         } else {
           this.unfinishedGoal(name, _id);
