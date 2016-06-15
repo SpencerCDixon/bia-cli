@@ -27,7 +27,8 @@
   "license": "MIT",
   "bin": {
     "bia": "bin/index.js",
-    "bia-goals": "bin/bia-goals.js"
+    "bia-goals": "bin/bia-goals.js",
+    "bia-init": "bin/bia-init.js"
   },
   "dependencies": {
     "axios": "^0.12.0",

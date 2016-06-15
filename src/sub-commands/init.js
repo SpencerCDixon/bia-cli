@@ -15,24 +15,25 @@ class Init extends SubCommand {
 
   printUserHelp() {
     this.ui.write(
-      'inititialization command to create a .reduxrc which has project settings'
+      'inititialization command to create a ~/.bia file for project settings'
     );
   }
 
   run() {
     this.ui.write(this.cliLogo());
+    this.ui.writeEmpty();
+
     prompt.get(initPrompt, (err, result) => {
       this.ui.writeInfo('Saving your settings...');
       this.settings.setAllSettings(result);
-      this.settings.save();
-      this.ui.writeCreate('.reduxrc with configuration saved in project root.');
+      this.ui.writeCreate('.bia with configuration saved in home directory.');
     });
   }
 
   cliLogo() {
     return success(
-      figlet.textSync('Bia-CLI', {
-        font: 'dotmatrix',
+      figlet.textSync('Bia CLI', {
+        font: 'small',
         horizontalLayout: 'default',
         verticalLayout: 'default'
       })
