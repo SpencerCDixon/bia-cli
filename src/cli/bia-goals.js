@@ -4,7 +4,9 @@ import Goals from '../sub-commands/goals';
 const sub = new Goals();
 
 commander
-  .action(() => {
-    sub.run();
+  .option('-c, --complete', 'completed goals')
+  .action((opts) => {
+    const complete = commander.complete;
+    sub.run(complete);
   })
   .parse(process.argv);

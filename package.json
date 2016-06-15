@@ -28,7 +28,8 @@
   "bin": {
     "bia": "bin/index.js",
     "bia-goals": "bin/bia-goals.js",
-    "bia-init": "bin/bia-init.js"
+    "bia-init": "bin/bia-init.js",
+    "bia-habit": "bin/bia-habit.js"
   },
   "dependencies": {
     "axios": "^0.12.0",

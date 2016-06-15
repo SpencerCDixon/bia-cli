@@ -13,9 +13,17 @@ class Goals extends SubCommand {
     this.ui.write('Goal related help');
   }
 
-  run() {
+  run(completed) {
     this.api.fetchGoals().then(goals => {
-      goals.forEach(goal => {
+      let finalGoals;
+
+      if (completed) {
+        finalGoals = goals.filter(goal => goal.complete);
+      } else {
+        finalGoals = goals;
+      }
+
+      finalGoals.forEach(goal => {
         const { complete, name, _id } = goal;
 
         if (complete) {
