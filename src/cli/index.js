@@ -6,6 +6,7 @@ program
 
 program
   .command('init', 'Sets up a .bia config file')
+  .command('weight', 'TODO')
   .command('habit', 'habit helpers')
   .command('goals', 'goal helpers');
 

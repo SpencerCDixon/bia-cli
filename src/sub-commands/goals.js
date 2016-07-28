@@ -1,4 +1,3 @@
-import Api from '../models/api';
 import SubCommand from '../models/sub-command';
 import ProjectSettings from '../models/project-settings';
 import chalk from 'chalk';
@@ -6,7 +5,6 @@ import chalk from 'chalk';
 class Goals extends SubCommand {
   constructor() {
     super();
-    this.api = new Api(this.ui);
   }
 
   printUserHelp() {

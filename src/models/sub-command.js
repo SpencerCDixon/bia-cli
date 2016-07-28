@@ -1,4 +1,5 @@
 import ProjectSettings from './project-settings';
+import Api from './api';
 import UI from './ui';
 
 class SubCommand {
@@ -7,6 +8,7 @@ class SubCommand {
     this.rawOptions = options;
     this.settings   = options.settings || new ProjectSettings();
     this.ui         = options.ui || new UI();
+    this.api        = new Api(this.ui);
 
     this.environment = {
       ui: this.ui,

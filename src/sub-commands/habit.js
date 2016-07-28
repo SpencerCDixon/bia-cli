@@ -12,7 +12,10 @@ class Habit extends SubCommand {
   }
 
   run() {
-    console.log('Running from inside sub command!');
+    this.api.fetchWeights()
+      .then(weights => {
+        this.ui.writeLine(`${weight.amount}`);
+      })
   }
 }
 
