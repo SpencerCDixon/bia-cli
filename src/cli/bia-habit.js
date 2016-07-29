@@ -4,8 +4,8 @@ import Habit from '../sub-commands/habit';
 const sub = new Habit();
 
 commander
-  .action((opts) => {
-    console.log('Running from inside commander');
-    sub.run();
+  .arguments('<cmd> [desc]')
+  .action((cmd, desc) => {
+    sub.run(cmd, desc);
   })
   .parse(process.argv);

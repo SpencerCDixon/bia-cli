@@ -7,15 +7,27 @@ class Habit extends SubCommand {
 
   printUserHelp() {
     this.ui.write(
-      'TODO'
+      'Display and create habits'
     );
   }
 
-  run() {
-    this.api.fetchWeights()
-      .then(weights => {
-        this.ui.writeLine(`${weight.amount}`);
+  run(cmd, name) {
+    if (cmd === 'list') {
+      this.api.fetchHabits().then(habits => {
+        this.ui.writeEmpty();
+        this.ui.writeLine('Habits:');
+        habits.forEach(el => this.displayHabit(el));
       })
+    } else {
+      this.api.createHabit({name})
+        .then(() => {
+          this.ui.writeInfo('Successfully created habit')
+        })
+    }
+  }
+
+  displayHabit(habit) {
+    this.ui.writeLine(`  * ${habit.name}`);
   }
 }
 

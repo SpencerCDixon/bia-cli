@@ -26,25 +26,46 @@ class Api {
     this.ui.writeError(`Error: ${err}`);
   }
 
-  fetchGoals() {
-    this.ui.startProgress('Fetching goals');
-    return this.client.get('/goals')
+  fetchResource(path, msg) {
+    const inferred = path.substring(1, path.length);
+    this.ui.startProgress(`Fetching ${msg || inferred}`);
+
+    return this.client.get(path)
       .then(this.onSuccess)
       .catch(this.onError);
+  }
+
+  createResource(path, params, msg) {
+    const inferred = path.substring(1, path.length - 1);
+    this.ui.startProgress(`Creating new ${msg || inferred}`)
+
+    return this.client.post(path, params)
+      .then(this.onSuccess)
+      .catch(this.onError);
+  }
+
+  fetchGoals() {
+    return this.fetchResource('/goals');
+  }
+
+  createGoal(params) {
+    return this.createResource('/goals', params);
   }
 
   fetchWeights() {
-    this.ui.startProgress('Fetching weights');
-    return this.client.get('/weights')
-      .then(this.onSuccess)
-      .catch(this.onError);
+    return this.fetchResource('/weights');
   }
 
-  createWeight(amount) {
-    this.ui.startProgress('Creating new weight entry');
-    return this.client.post('/weights', { amount: amount })
-      .then(this.onSuccess)
-      .catch(this.onError);
+  createWeight(params) {
+    return this.createResource('/weights', params);
+  }
+
+  fetchHabits() {
+    return this.fetchResource('/habits');
+  }
+
+  createHabit(params) {
+    return this.createResource('/habits', params);
   }
 }
 export default Api;

@@ -2,11 +2,10 @@ import SubCommand from '../models/sub-command';
 import chalk from 'chalk';
 import { toDate } from '../util/text-helper';
 
-// TODO: how could I approach this functionally?
+// TODO: how could I approach this more functionally?
 function idealWeight(amount) {
   return amount > 150 ? chalk.red(amount) : chalk.green(amount);
 }
-
 
 class Weight extends SubCommand {
   constructor() {
@@ -25,7 +24,7 @@ class Weight extends SubCommand {
         weights.forEach(el => this.displayWeight(el));
       })
     } else {
-      this.api.createWeight(amount)
+      this.api.createWeight({amount})
         .then(() => {
           this.ui.writeInfo('Successfully created weight entry')
         })

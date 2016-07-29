@@ -2,7 +2,6 @@ import chalk from 'chalk';
 import { depascalize, pascalize, camelize } from 'humps';
 import moment from 'moment';
 
-// Bootstrap inspired text color helpers for the command line.
 export const success = (text) => {
   return chalk.green(text);
 };
@@ -13,15 +12,6 @@ export const danger = (text) => {
 
 export const warning = (text) => {
   return chalk.yellow(text);
-};
-
-// Random string/text helpers
-export const normalizeComponentName = (name) => {
-  return pascalize(name);
-};
-
-export const normalizeDuckName = (name) => {
-  return camelize(name);
 };
 
 export const normalizeCasing = (string, casing) => {
