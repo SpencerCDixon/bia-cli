@@ -15,46 +15,36 @@ class Api {
     });
   }
 
+  onSuccess = (response) => {
+    this.ui.stopProgress();
+    return response.data;
+  }
+
+  onError = (err) => {
+    this.ui.stopProgress();
+    this.ui.writeError('Something went wrong.');
+    this.ui.writeError(`Error: ${err}`);
+  }
+
   fetchGoals() {
     this.ui.startProgress('Fetching goals');
     return this.client.get('/goals')
-      .then(response => {
-        this.ui.stopProgress();
-        return response.data;
-      })
-      .catch(err => {
-        this.ui.stopProgress();
-        this.ui.writeError('Something went wrong fetching goals');
-        this.ui.writeError(err.message);
-      });
+      .then(this.onSuccess)
+      .catch(this.onError);
   }
 
   fetchWeights() {
     this.ui.startProgress('Fetching weights');
     return this.client.get('/weights')
-      .then(resp => {
-        this.ui.stopProgress();
-        return resp.data;
-      })
-      .catch(err => {
-        this.ui.stopProgress();
-        this.ui.writeError('Something went wrong fetching weights');
-        this.ui.writeError(err.message);
-      });
+      .then(this.onSuccess)
+      .catch(this.onError);
   }
 
   createWeight(amount) {
     this.ui.startProgress('Creating new weight entry');
     return this.client.post('/weights', { amount: amount })
-      .then(resp => {
-        this.ui.stopProgress();
-        return resp.data;
-      })
-      .catch(err => {
-        this.ui.stopProgress();
-        this.ui.writeError('Something went wrong creating weight');
-        this.ui.writeError(err.message);
-      });
+      .then(this.onSuccess)
+      .catch(this.onError);
   }
 }
 export default Api;

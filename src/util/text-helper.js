@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { depascalize, pascalize, camelize } from 'humps';
+import moment from 'moment';
 
 // Bootstrap inspired text color helpers for the command line.
 export const success = (text) => {
@@ -42,3 +43,7 @@ export const normalizeCasing = (string, casing) => {
     return string;
   }
 };
+
+export function toDate(timestamp) {
+  return moment(timestamp).format('lll');
+}

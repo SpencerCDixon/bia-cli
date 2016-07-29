@@ -1,15 +1,12 @@
 import SubCommand from '../models/sub-command';
 import chalk from 'chalk';
-import moment from 'moment';
+import { toDate } from '../util/text-helper';
 
 // TODO: how could I approach this functionally?
 function idealWeight(amount) {
   return amount > 150 ? chalk.red(amount) : chalk.green(amount);
 }
 
-function toDate(timestamp) {
-  return moment(timestamp).format('lll');
-}
 
 class Weight extends SubCommand {
   constructor() {
