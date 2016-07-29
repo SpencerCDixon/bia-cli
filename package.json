@@ -7,16 +7,11 @@
     "node": ">=5.1"
   },
   "scripts": {
-    "test": "npm run lint && env NODE_PATH=$NODE_PATH:$PWD/src ./node_modules/.bin/babel-node node_modules/isparta/bin/isparta cover --report html ./node_modules/.bin/_mocha -- --compilers js:babel-register --opts ./.mocha.opts",
-    "test:nocov": "env NODE_PATH=$NODE_PATH:$PWD/src ./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --compilers js:babel-register --opts ./.mocha.opts ",
     "start": "npm run build:watch",
     "build": "babel src -d lib",
     "build:watch": "babel src --watch -d lib",
     "lint": "eslint ./src ./test",
-    "cover": "istanbul cover",
-    "clean": "rimraf lib",
-    "publish:patch": "npm test && npm run clean && npm run build && npm version patch && npm publish",
-    "publish:minor": "npm test && npm run clean && npm run build && npm version minor && npm publish"
+    "clean": "rimraf lib"
   },
   "keywords": [
     "cli",
@@ -58,6 +53,7 @@
     "babel-cli": "^6.5.1",
     "babel-eslint": "^4.1.8",
     "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.5.1",
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
